@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header
+        class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"
+      >
+        <a
+          href="index.html"
+          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+        >
+          <img
+            src="img/free-car-icon-2901-thumb.png"
+            class="bi me-2"
+            width="40"
+            height="32"
+          />
+          <span class="fs-4">CarSale</span>
+        </a>
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a href="carrito.html" class="nav-link">Mi carrito</a>
+          </li>
+        </ul>
+      </header>
+    </div>
+    <section class="h-100 h-custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div
+              class="card card-registration card-registration-2"
+              style="border-radius: 15px"
+            >
+              <div class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-8">
+                    <div class="p-5">
+                      <div
+                        class="d-flex justify-content-between align-items-center mb-5"
+                      >
+                        <h1 class="fw-bold mb-0 text-black">
+                          Carrito de compras
+                        </h1>
+                      </div>
+                      <hr class="my-4" />
+
+                      <div class="container" id="cartContainer">
+                        <!-- Aquí productos -->
+                      </div>
+
+                      <div class="pt-5">
+                        <h6 class="mb-0">
+                          <a href="index.html" class="text-body"
+                            ><i class="fas fa-long-arrow-alt-left me-2"></i
+                            >Volver a productos</a
+                          >
+                        </h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 bg-grey">
+                    <div class="p-5">
+                      <h3 class="fw-bold mb-5 mt-2 pt-1">
+                        Datos de facturación
+                      </h3>
+
+                      <hr class="my-4" />
+
+                      <div class="d-flex justify-content-between mb-4">
+                        <!-- Aquí contador de items -->
+                        <h5 class="text-uppercase">
+                          Items <span id="items"></span>
+                        </h5>
+                      </div>
+
+                      <h5 class="text-uppercase mb-3">Cliente</h5>
+
+                      <div class="mb-5">
+                        <div class="form-outline">
+                          <input
+                            type="email"
+                            id="clientEmail"
+                            class="form-control form-control-lg"
+                            placeholder="Email"
+                            required
+                          />
+                          <div><br /></div>
+                          <input
+                            type="text"
+                            id="clientName"
+                            class="form-control form-control-lg"
+                            placeholder="Nombre completo"
+                            required
+                          />
+                          <div><br /></div>
+                          <input
+                            type="text"
+                            id="clientRut"
+                            class="form-control form-control-lg"
+                            placeholder="RUT (opcional)"
+                          />
+                        </div>
+                      </div>
+
+                      <hr class="my-4" />
+
+                      <div class="d-flex justify-content-between mb-5">
+                        <h5 class="text-uppercase">Precio Final</h5>
+                        <h5>
+                          USD
+                          <span id="totalPrice"
+                            ><!-- Aquí precio final --></span
+                          >
+                        </h5>
+                      </div>
+                      <div
+                        class="modal fade"
+                        id="exampleModalToggle"
+                        aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel"
+                        tabindex="-1"
+                      >
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1
+                                class="modal-title fs-5"
+                                id="exampleModalToggleLabel"
+                              >
+                                Factura
+                              </h1>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body" id="facturaDiv">
+                              <!-- Aquí factura -->
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                class="btn btn-primary"
+                                data-bs-target="#exampleModalToggle2"
+                                data-bs-toggle="modal"
+                                id="pagarBtn"
+                              >
+                                Pagar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="modal fade"
+                        id="exampleModalToggle2"
+                        aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel2"
+                        tabindex="-1"
+                      >
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1
+                                class="modal-title fs-5"
+                                id="exampleModalToggleLabel2"
+                              >
+                                Ups!
+                              </h1>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Todavía no estamos aceptando pagos, pero gracias
+                              por probar nuestro sitio!
+                              <a
+                                href="index.html"
+                                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
+                              >
+                                <img
+                                  src="img/free-car-icon-2901-thumb.png"
+                                  class="bi me-2"
+                                  width="40"
+                                  height="32"
+                                />
+                                <span class="fs-4">CarSale</span>
+                              </a>
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                class="btn btn-primary"
+                                data-bs-target="#exampleModalToggle"
+                                data-bs-toggle="modal"
+                              >
+                                Volver a la factura
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        class="btn btn-dark btn-block btn-lg"
+                        data-mdb-ripple-color="dark"
+                        data-bs-target="#exampleModalToggle"
+                        data-bs-toggle="modal"
+                        onclick="showBill()"
+                      >
+                        Ver factura
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="carrito.js"></script>
+  </body>
+</html>
